@@ -17,12 +17,12 @@ def send_message():
         message = f"Email : {email}, Message : {messages}"
         conn = http.client.HTTPSConnection("api.ultramsg.com",context = ssl._create_unverified_context())
 
-        payload = f"token=csg97w489e4u9zws&to=+923002766638&body={message}"
+        payload = f"token=api-key&body={message}"
         payload = payload.encode('utf8').decode('iso-8859-1') 
 
         headers = { 'content-type': "application/x-www-form-urlencoded" }
 
-        conn.request("POST", "/instance40688/messages/chat", payload, headers)
+        conn.request("POST", "/instanceid/messages/chat", payload, headers)
 
         res = conn.getresponse()
         data = res.read()
